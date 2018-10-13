@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 Attendee Checkin
+
+  table.table.table-striped
+    tr
+      th Full Name
+      th Email Address
+      th IRC Nick
+      th Checked In Time
+    each checkIn in checkins
+      tr
+        if checkIn.profile
+          td= checkIn.profile.data.Full_Name
+          td= checkIn.profile.data.Email
+          td= checkIn.profile.data.Irc_Nick
+          td= checkIn.createdAt

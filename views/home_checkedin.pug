@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  hr
+  center
+    p Please Scan Barcode of Next Badge
+  hr
+
+  h1 Attendee Checked In
+
+  h3= attendee.name
+  //- p= attendee.email
+  p= attendee.id
+  p= attendee.irc
+  p= attendee.role
+
+  div
+    div.overlay
+    form(action="/", method="GET")
+      input(type="text", name="id").alwaysfocus
+      input(type="submit", name="checkin", value="Check In").btn.btn-success.btn-large

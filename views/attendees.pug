@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 All Attendees
+  hr
+  .row
+    each registration in conference.registrations
+      .col-sm-3(style="min-height:250px;")
+        h3= registration.profile.data.Full_Name
+        p= registration.id
+        p= registration.profile.data.Irc_Nick
+        //- p= registration.profile.data.Email
+        p= registration.profile.data.Primary_Role_in_KDE
+        h4 Wifi
+        p= registration.wifi.username
+        p= registration.wifi.password
+        form(action="/", method="GET")
+          input(type="hidden", name="id", value=("00"+registration.id+"7"))
+          input(type="submit", name="checkin", value="Check In").btn.btn-success.btn-large
